@@ -1,112 +1,236 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>隐私政策 / Privacy Policy</title>
-<style>
-    body { 
-        font-family: -apple-system, Helvetica, Arial, sans-serif; 
-        line-height: 1.6; 
-        margin: 0;
-        background-color: #f9f9f9;
-        color: #333;
-    }
-    header { 
-        background-color: #0066cc; 
-        color: white; 
-        padding: 15px; 
-        display: flex; 
-        justify-content: space-between; 
-        align-items: center; 
-        flex-wrap: wrap;
-    }
-    header h1 { margin: 0; font-size: 1.2em; }
-    nav a { color: white; text-decoration: none; margin-left: 15px; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
-    main { padding: 20px; max-width: 900px; margin: auto; }
-    h2 { margin-top: 1.5em; }
-    h3 { margin-top: 1em; }
-    p, li { margin: 0.5em 0; }
-    li { margin-left: 20px; }
-    .section { margin-bottom: 2em; }
-    .lang { font-weight: bold; margin-bottom: 0.5em; }
-    .last-updated { font-size: 0.9em; color: #666; text-align: center; margin-bottom: 2em; }
-</style>
-<script>
-function showSection(lang) {
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(s => s.style.display = 'none');
-    document.getElementById(lang).style.display = 'block';
-}
-window.onload = function() { showSection('zh-cn'); }
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - PDF Merge & Split Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', -apple-system, sans-serif; }
+        .lang-node { display: none; }
+        .lang-node.active { display: block; }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800">
 
-<header>
-    <h1>隐私政策 / Privacy Policy</h1>
-    <nav>
-        <a href="javascript:showSection('zh-cn')">简体中文</a>
-        <a href="javascript:showSection('zh-tw')">繁體中文</a>
-        <a href="javascript:showSection('en')">English</a>
+    <nav class="bg-white border-b sticky top-0 z-10">
+        <div class="max-w-4xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="bg-blue-600 p-2 rounded-lg">
+                    <i class="fas fa-file-pdf text-white"></i>
+                </div>
+                <span class="font-bold text-lg tracking-tight">PDF Assistant</span>
+            </div>
+            
+            <div class="relative inline-block text-left">
+                <select onchange="updateLang(this.value)" id="langSelector" class="block w-full bg-white border border-gray-300 rounded-md py-2 pl-3 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none cursor-pointer">
+                    <option value="zh-CN">🇨🇳 中文 (简体)</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="en">🇺🇸 English (US)</option>
+                    <option value="es">🇪🇸 Español (ES)</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="it">🇮🇹 Italiano</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="pt">🇧🇷 Português (BR)</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="zh-TW">🇭🇰 中文 (繁體)</option>
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </div>
+            </div>
+        </div>
     </nav>
-</header>
 
-<main>
-<p class="last-updated">最後更新日期: 2026-01-20 | Last Updated: January 20, 2026</p>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <header class="mb-12 text-center">
+            <h1 id="mainTitle" class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">Privacy Policy</h1>
+            <p class="text-slate-500" id="lastUpdatedText">Last Updated: January 20, 2026</p>
+        </header>
 
-<!-- 简体中文 -->
-<div class="section" id="zh-cn">
-    <div class="lang">简体中文</div>
+        <div class="bg-white shadow-sm border border-slate-200 rounded-2xl p-6 md:p-10">
+            
+            <div id="content-container">
+                </div>
 
-    <h2>数据收集</h2>
-    <p>PDF合并拆分助手不收集、存储或共享任何个人数据。所有 PDF 处理操作均在您的本地设备上完成。</p>
+            <div class="mt-12 pt-8 border-t border-slate-100">
+                <h3 class="text-lg font-semibold mb-3 flex items-center">
+                    <i class="fas fa-envelope mr-2 text-blue-500"></i>
+                    <span id="contactTitle">Contact Us</span>
+                </h3>
+                <p class="text-slate-600">
+                    <span id="contactText">If you have any questions, please contact:</span> 
+                    <a href="mailto:strivemoring@gmail.com" class="text-blue-600 hover:underline font-medium">strivemoring@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </main>
 
-    <h2>文件访问</h2>
-    <p>应用仅在您明确选择文件时访问 PDF 文件，且仅用于您指定的合并或拆分操作。</p>
+    <footer class="py-8 text-center text-slate-400 text-sm">
+        &copy; 2026 PDF Merge & Split Assistant. All rights reserved.
+    </footer>
 
-    <h2>内购信息</h2>
-    <p>内购交易由 Apple 处理，我们不收集或存储任何付款信息。</p>
+    <script>
+        // 11 种语言的本地化数据库
+        const translations = {
+            "zh-CN": {
+                title: "隐私政策",
+                updated: "最后更新日期: 2026年1月20日",
+                contactTitle: "联系方式",
+                contactText: "如有疑问，请联系：",
+                sections: [
+                    { h: "数据收集", p: "PDF合并拆分助手不收集、存储或共享任何个人数据。所有 PDF 处理操作均在您的本地设备上完成。" },
+                    { h: "文件访问", p: "应用仅在您明确选择文件时访问 PDF 文件，且仅用于您指定的合并或拆分操作。" },
+                    { h: "内购信息", p: "内购交易由 Apple 处理，我们不收集或存储任何付款信息。" }
+                ]
+            },
+            "en": {
+                title: "Privacy Policy",
+                updated: "Last Updated: January 20, 2026",
+                contactTitle: "Contact Us",
+                contactText: "If you have any questions, please contact:",
+                sections: [
+                    { h: "Data Collection", p: "PDF Merge & Split Assistant does not collect, store, or share any personal data. All PDF processing is performed locally on your device." },
+                    { h: "File Access", p: "The app only accesses PDF files when you explicitly select them for the operations you specify." },
+                    { h: "In-App Purchases", p: "Transactions are processed by Apple. We do not collect or store any payment information." }
+                ]
+            },
+            "de": {
+                title: "Datenschutzerklärung",
+                updated: "Zuletzt aktualisiert: 20. Januar 2026",
+                contactTitle: "Kontakt",
+                contactText: "Bei Fragen kontaktieren Sie bitte:",
+                sections: [
+                    { h: "Datenerhebung", p: "PDF Merge & Split Assistant sammelt, speichert oder teilt keine persönlichen Daten. Alle PDF-Verarbeitungsvorgänge werden lokal auf Ihrem Gerät durchgeführt." },
+                    { h: "Dateizugriff", p: "Die App greift nur auf PDF-Dateien zu, wenn Sie diese explizit für die von Ihnen angegebenen Vorgänge auswählen." },
+                    { h: "In-App-Käufe", p: "In-App-Käufe werden von Apple verarbeitet. Wir erfassen oder speichern keine Zahlungsinformationen." }
+                ]
+            },
+            "es": {
+                title: "Política de Privacidad",
+                updated: "Última actualización: 20 de enero de 2026",
+                contactTitle: "Contacto",
+                contactText: "Si tiene alguna pregunta, contacte con:",
+                sections: [
+                    { h: "Recopilación de Datos", p: "La aplicación no recopila, almacena ni comparte ningún dato personal. Todo el procesamiento se realiza localmente en su dispositivo." },
+                    { h: "Acceso a Archivos", p: "La aplicación solo accede a los archivos PDF cuando usted los selecciona explícitamente para las operaciones indicadas." },
+                    { h: "Compras en la App", p: "Las transacciones son procesadas por Apple. No recopilamos ni almacenamos información de pago." }
+                ]
+            },
+            "fr": {
+                title: "Politique de Confidentialité",
+                updated: "Dernière mise à jour : 20 janvier 2026",
+                contactTitle: "Contact",
+                contactText: "Si vous avez des questions, veuillez contacter :",
+                sections: [
+                    { h: "Collecte de Données", p: "L'application ne collecte, ne stocke ni ne partage aucune donnée personnelle. Tous les traitements PDF sont effectués localement sur votre appareil." },
+                    { h: "Accès aux Fichiers", p: "L'application n'accède aux fichiers PDF que lorsque vous les sélectionnez explicitement pour les opérations spécifiées." },
+                    { h: "Achats Intégrés", p: "Les achats sont traités par Apple. Nous ne collectons ni ne stockons aucune information de paiement." }
+                ]
+            },
+            "it": {
+                title: "Informativa sulla Privacy",
+                updated: "Ultimo aggiornamento: 20 gennaio 2026",
+                contactTitle: "Contatti",
+                contactText: "In caso di domande, si prega di contattare:",
+                sections: [
+                    { h: "Raccolta Dati", p: "L'app non raccoglie, memorizza o condivide alcun dato personale. Tutte le operazioni sui PDF vengono eseguite localmente sul dispositivo." },
+                    { h: "Accesso ai File", p: "L'app accede ai file PDF solo quando vengono selezionati esplicitamente per le operazioni specificate." },
+                    { h: "Acquisti In-App", p: "Le transazioni sono gestite da Apple. Non raccogliamo né memorizziamo informazioni di pagamento." }
+                ]
+            },
+            "ja": {
+                title: "プライバシーポリシー",
+                updated: "最終更新日: 2026年1月20日",
+                contactTitle: "お問い合わせ",
+                contactText: "ご不明な点がございましたら、こちらまでご連絡ください：",
+                sections: [
+                    { h: "データの収集", p: "PDF結合・分割アシスタントは、個人データを収集、保存、共有しません。すべてのPDF処理はデバイス上でローカルに行われます。" },
+                    { h: "ファイルへのアクセス", p: "アプリは、ユーザーが明示的に選択したPDFファイルにのみアクセスし、指定された操作のみに使用します。" },
+                    { h: "アプリ内課金", p: "購入はAppleによって処理されます。支払い情報を収集または保存することはありません。" }
+                ]
+            },
+            "ko": {
+                title: "개인정보 처리방침",
+                updated: "최종 업데이트: 2026년 1月 20일",
+                contactTitle: "문의하기",
+                contactText: "문의 사항이 있으시면 다음으로 연락해 주십시오:",
+                sections: [
+                    { h: "데이터 수집", p: "PDF 병합 및 분할 도우미는 어떠한 개인 데이터도 수집, 저장 또는 공유하지 않습니다. 모든 PDF 처리 작업은 사용자의 기기에서 로컬로 수행됩니다." },
+                    { h: "파일 액세스", p: "앱은 사용자가 명시적으로 선택한 PDF 파일에만 액세스하며, 지정된 작업에만 사용됩니다." },
+                    { h: "인앱 구매", p: "구매 내역은 Apple에서 처리합니다. 당사는 결제 정보를 수집하거나 저장하지 않습니다." }
+                ]
+            },
+            "pt": {
+                title: "Política de Privacidade",
+                updated: "Última atualização: 20 de janeiro de 2026",
+                contactTitle: "Contato",
+                contactText: "Se você tiver alguma dúvida, entre em contato:",
+                sections: [
+                    { h: "Coleta de Dados", p: "O Assistente de PDF não coleta, armazena ou compartilha dados pessoais. Todo o processamento de PDF é feito localmente no seu dispositivo." },
+                    { h: "Acesso a Arquivos", p: "O aplicativo acessa arquivos PDF apenas quando você os seleciona explicitamente para as operações especificadas." },
+                    { h: "Compras no Aplicativo", p: "As transações são processadas pela Apple. Não coletamos nem armazenamos informações de pagamento." }
+                ]
+            },
+            "ru": {
+                title: "Политика конфиденциальности",
+                updated: "Последнее обновление: 20 января 2026 г.",
+                contactTitle: "Контактная информация",
+                contactText: "Если у вас есть вопросы, свяжитесь с нами:",
+                sections: [
+                    { h: "Сбор данных", p: "Приложение не собирает, не хранит и не передает никакие персональные данные. Все операции с PDF выполняются локально на вашем устройстве." },
+                    { h: "Доступ к файлам", p: "Приложение получает доступ к PDF-файлам только тогда, когда вы их выбираете для выполнения определенных операций." },
+                    { h: "Встроенные покупки", p: "Покупки обрабатываются Apple. Мы не собираем и не храним платежную информацию." }
+                ]
+            },
+            "zh-TW": {
+                title: "隱私政策",
+                updated: "最後更新日期: 2026年1月20日",
+                contactTitle: "聯絡方式",
+                contactText: "如有疑問，請聯絡：",
+                sections: [
+                    { h: "資料收集", p: "PDF合併拆分助手不收集、儲存或分享任何個人資料。所有 PDF 處理操作均在您的本地設備上完成。" },
+                    { h: "檔案存取", p: "應用僅在您明確選擇檔案時存取 PDF 檔案，且僅用於您指定的合併或拆分操作。" },
+                    { h: "內購資訊", p: "內購交易由 Apple 處理，我們不收集或儲存任何付款資訊。" }
+                ]
+            }
+        };
 
-    <h2>联系方式</h2>
-    <p>如有疑问，请联系: <a href="mailto:strivemoring@gmail.com">strivemoring@gmail.com</a></p>
-</div>
+        function updateLang(langCode) {
+            const data = translations[langCode] || translations['en'];
+            
+            // 更新通用文本
+            document.getElementById('mainTitle').innerText = data.title;
+            document.getElementById('lastUpdatedText').innerText = data.updated;
+            document.getElementById('contactTitle').innerText = data.contactTitle;
+            document.getElementById('contactText').innerText = data.contactText;
+            
+            // 生成内容区块
+            const container = document.getElementById('content-container');
+            container.innerHTML = '';
+            data.sections.forEach(section => {
+                const div = document.createElement('div');
+                div.className = 'mb-8 last:mb-0';
+                div.innerHTML = `
+                    <h2 class="text-xl font-bold text-slate-900 mb-3">${section.h}</h2>
+                    <p class="text-slate-600 leading-relaxed">${section.p}</p>
+                `;
+                container.appendChild(div);
+            });
 
-<!-- 繁体中文 -->
-<div class="section" id="zh-tw" style="display:none">
-    <div class="lang">繁體中文</div>
+            // 保存用户选择到本地存储
+            localStorage.setItem('preferredLang', langCode);
+        }
 
-    <h2>資料收集</h2>
-    <p>PDF合併拆分助手不收集、儲存或分享任何個人資料。所有 PDF 處理操作均在您的本地設備上完成。</p>
-
-    <h2>檔案存取</h2>
-    <p>應用僅在您明確選擇檔案時存取 PDF 檔案，且僅用於您指定的合併或拆分操作。</p>
-
-    <h2>內購資訊</h2>
-    <p>內購交易由 Apple 處理，我們不收集或儲存任何付款資訊。</p>
-
-    <h2>聯絡方式</h2>
-    <p>如有疑問，請聯絡: <a href="mailto:strivemoring@gmail.com">strivemoring@gmail.com</a></p>
-</div>
-
-<!-- English -->
-<div class="section" id="en" style="display:none">
-    <div class="lang">English</div>
-
-    <h2>Data Collection</h2>
-    <p>PDF Merge & Split Assistant does not collect, store, or share any personal data. All PDF processing operations are performed locally on your device.</p>
-
-    <h2>File Access</h2>
-    <p>The app only accesses PDF files when you explicitly select them, and solely for the merge or split operations you specify.</p>
-
-    <h2>In-App Purchases</h2>
-    <p>In-app purchases are processed by Apple. We do not collect or store any payment information.</p>
-
-    <h2>Contact</h2>
-    <p>If you have any questions, please contact: <a href="mailto:strivemoring@gmail.com">strivemoring@gmail.com</a></p>
-</div>
-
-</main>
+        // 初始化语言
+        window.onload = function() {
+            const savedLang = localStorage.getItem('preferredLang') || 'zh-CN';
+            document.getElementById('langSelector').value = savedLang;
+            updateLang(savedLang);
+        }
+    </script>
 </body>
 </html>

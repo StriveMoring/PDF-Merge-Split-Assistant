@@ -42,8 +42,7 @@
 
     <main class="max-w-4xl mx-auto px-4 py-12">
         <header class="mb-12 text-center">
-            <h1 id="mainTitle" class="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Privacy Policy</h1>
-            <p class="text-slate-500 font-medium" id="lastUpdatedText">Last Updated: January 20, 2026</p>
+            <h1 id="mainTitle" class="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">Privacy Policy</h1>
         </header>
 
         <div class="bg-white shadow-xl shadow-slate-200/50 border border-slate-200 rounded-3xl p-8 md:p-12 transition-all">
@@ -71,7 +70,6 @@
         const translations = {
             "en": {
                 title: "Privacy Policy",
-                updated: "Last Updated: January 20, 2026",
                 contactTitle: "Contact Us",
                 contactText: "If you have any questions, please contact:",
                 sections: [
@@ -82,7 +80,6 @@
             },
             "zh-CN": {
                 title: "隐私政策",
-                updated: "最后更新日期: 2026年1月20日",
                 contactTitle: "联系方式",
                 contactText: "如有疑问，请联系：",
                 sections: [
@@ -93,7 +90,6 @@
             },
             "de": {
                 title: "Datenschutzerklärung",
-                updated: "Zuletzt aktualisiert: 20. Januar 2026",
                 contactTitle: "Kontakt",
                 contactText: "Bei Fragen kontaktieren Sie bitte:",
                 sections: [
@@ -104,7 +100,6 @@
             },
             "es": {
                 title: "Política de Privacidad",
-                updated: "Última actualización: 20 de enero de 2026",
                 contactTitle: "Contacto",
                 contactText: "Si tiene alguna pregunta, contacte con:",
                 sections: [
@@ -115,7 +110,6 @@
             },
             "fr": {
                 title: "Politique de Confidentialité",
-                updated: "Dernière mise à jour : 20 janvier 2026",
                 contactTitle: "Contact",
                 contactText: "Si vous avez des questions, veuillez contacter :",
                 sections: [
@@ -126,7 +120,6 @@
             },
             "it": {
                 title: "Informativa sulla Privacy",
-                updated: "Ultimo aggiornamento: 20 gennaio 2026",
                 contactTitle: "Contatti",
                 contactText: "In caso di domande, si prega di contattare:",
                 sections: [
@@ -137,7 +130,6 @@
             },
             "ja": {
                 title: "プライバシーポリシー",
-                updated: "最終更新日: 2026年1月20日",
                 contactTitle: "お問い合わせ",
                 contactText: "ご不明な点がございましたら、こちらまでご連絡ください：",
                 sections: [
@@ -148,7 +140,6 @@
             },
             "ko": {
                 title: "개인정보 처리방침",
-                updated: "최종 업데이트: 2026년 1월 20일",
                 contactTitle: "문의하기",
                 contactText: "문의 사항이 있으시면 다음으로 연락해 주십시오:",
                 sections: [
@@ -159,18 +150,16 @@
             },
             "pt": {
                 title: "Política de Privacidade",
-                updated: "Última atualização: 20 de janeiro de 2026",
                 contactTitle: "Contato",
                 contactText: "Se você tiver alguma dúvida, entre em contato:",
                 sections: [
                     { h: "Coleta de Dados", p: "PDF Merge & Split Assistant não coleta, armazena ou compartilha dados pessoais. Todo o processamento de PDF é feito localmente no seu dispositivo." },
-                    { h: "Acesso a Archivos", p: "O aplicativo acessa arquivos PDF apenas quando você os seleciona explicitamente para as operações especificadas." },
+                    { h: "Acesso a Archivos", p: "O aplicativo acessa arquivos PDF apenas quando você os seleciona explicitamente para las operaciones especificadas." },
                     { h: "Compras no Aplicativo", p: "As transações são processadas pela Apple. Não coletamos nem armazenamos informações de pagamento." }
                 ]
             },
             "ru": {
                 title: "Политика конфиденциальности",
-                updated: "Последнее обновление: 20 января 2026 г.",
                 contactTitle: "Контактная информация",
                 contactText: "Если у вас есть вопросы, свяжитесь с нами:",
                 sections: [
@@ -181,7 +170,6 @@
             },
             "zh-TW": {
                 title: "隱私政策",
-                updated: "最後更新日期: 2026年1月20日",
                 contactTitle: "聯絡方式",
                 contactText: "如有疑問，請聯絡：",
                 sections: [
@@ -197,7 +185,6 @@
             
             document.title = data.title + " - PDF Merge & Split Assistant";
             document.getElementById('mainTitle').innerText = data.title;
-            document.getElementById('lastUpdatedText').innerText = data.updated;
             document.getElementById('contactTitle').innerText = data.contactTitle;
             document.getElementById('contactText').innerText = data.contactText;
             
